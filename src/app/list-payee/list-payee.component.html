@@ -1,0 +1,20 @@
+<app-home></app-home>
+<div class="list">
+    <table class="table  table-bordered table-hover" >
+        <tr>
+          <th>#</th>
+          <th>Account Number</th>
+          <th>IFSC Code</th>
+          <th>Nick Name</th>
+          <th colspan>Action</th>
+          </tr>
+        
+        <tr *ngFor = "let data of allPayee.payeeList">   
+        <td>{{data.payeeId}}</td>
+        <td>{{data.payeeAccountNo}}</td>
+        <td>{{data.ifscCode}}</td>
+        <td>{{data.nickName}}</td>
+        <td colspan="2"><button class="btn btn-primary" (click)="updatePayee()">Update</button> &nbsp; <button class="btn btn-primary" (click) ="deletePayee()">Delete</button></td> 
+        </table>
+</div>
+

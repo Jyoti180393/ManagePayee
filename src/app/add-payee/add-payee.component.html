@@ -1,0 +1,45 @@
+
+<app-home></app-home>
+<div class="bankform">
+        <form class="payeeform" (ngSubmit)="f.form.valid && onAdd()" #f="ngForm" novalidate> 
+                  <div class="form-group">
+                <label>Account Number</label>&nbsp;
+                <input type="number" class="form-control" name="payeeAccountNo" [(ngModel)]="model.payeeAccountNo" #payeeAccountNo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && payeeAccountNo.invalid }" required />
+                  <div *ngIf="f.submitted && payeeAccountNo.invalid" class="invalid-feedback">
+                      <div class="error" *ngIf="payeeAccountNo.errors.required">Account Number is required</div>
+                  </div>
+            </div>
+
+            <div class="form-group">
+                    <label>IFSC Code</label>&nbsp;
+                    <input type="text" class="form-control" name="ifscCode" [(ngModel)]="model.ifscCode" #ifscCode="ngModel" [ngClass]="{ 'is-invalid': f.submitted && ifscCode.invalid }" required />
+                    <div *ngIf="f.submitted && ifscCode.invalid" class="invalid-feedback">
+                        <div class="error" *ngIf="ifscCode.errors.required">Address is required</div>
+                    </div>
+                </div>
+                  
+            <div class="form-group">
+                        <label>Email</label>&nbsp;
+                        <input type="text" class="form-control" name="emailId" [(ngModel)]="model.emailId" #emailId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && emailId.invalid }" required email />
+                        <div *ngIf="f.submitted && emailId.invalid" class="invalid-feedback">
+                        <div class="error" *ngIf="emailId.errors.required">Email is required</div>
+                        <div class="error" *ngIf="emailId.errors.email">Email must be a valid email address</div>
+                         </div>   
+                </div>
+                             
+          
+            <div class="form-group">
+                <label>Nick Name</label> &nbsp;
+                <input type="text" class="form-control" name="nickNmae" [(ngModel)]="model.nickNmae" #nickNmae="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nickNmae.invalid }" required />
+                <div *ngIf="f.submitted && nickNmae.invalid" class="invalid-feedback">
+                  <div class="error" *ngIf="nickNmae.errors.required">Nick Name is required</div>
+                 </div>
+              </div>
+                    
+            <div class="form-group">
+                <button class="btn btn-primary">Add</button>
+            </div>
+        
+        </form>
+        </div>
+       
